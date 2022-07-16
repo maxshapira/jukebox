@@ -4,7 +4,7 @@
 
 namespace jukebox {
 	struct Node{
-		Node(int num, std::string type);
+		Node(int num, const std::string& type);
 
 		bool IsTerminal();
 

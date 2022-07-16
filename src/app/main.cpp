@@ -16,29 +16,19 @@ int main() {
 	std::ifstream songs_file("data/songs.json", std::ifstream::binary);
 	json::value_type songs;
 	songs_file >> songs;
-	auto song = songs.front();
+	Song song{ songs.front() };
 
-	//cout << people; //This will print the entire json object.
-	//cout << people.front(); //This will print the entire json object.
-	cout << song["Artist"]; //This will print the entire json object.
+	auto wstrs = jukebox::ReadFile("data/mae-j");
 
-	Song songg{ song };
+	for (auto it = wstrs.begin(); it != wstrs.end();) {
+		auto num = *it++;
+		auto n_type = *it++;
+		if (n_type == L"Artist") {
+			auto begin = it + 1;
+			auto end = it + 1 + (* it).front();
 
-
-
-	//auto wstrs = jukebox::ReadFile("data/songs.json");
-	//std::ifstream people_file("data/songs.json", std::ifstream::binary);
-	//json jf = json::parse(people_file);
-	//auto b = jf.front().front().front().front().front();
-	//people_file >> people;
-
-	//cout << people; //This will print the entire json object.
-
-	////The following lines will let you access the indexed objects.
-	//cout << people["Anna"]; //Prints the value for "Anna"
-	//cout << people["ben"]; //Prints the value for "Ben"
-	//cout << people["Anna"]["profession"]; //Prints the value corresponding to "profession" in the json for "Anna"
-
-	//cout << people["profession"]; //NULL! There is no element with key "profession". Hence a new empty element will be created.
-	int a = 0;
+			vector<wstring> artists(begin, end);
+			int a = 0;
+		}
+	}
 }

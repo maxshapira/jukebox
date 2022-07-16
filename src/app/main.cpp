@@ -18,7 +18,7 @@ int main() {
 	songs_file >> songs;
 	std::string file{ "data/mae-j" };
 	NodesContainer container(file);
-	//int ao = 0;
+	int ao = 0;
 	//auto wstrs =
    //for (auto it = wstrs.begin(); it != wstrs.end();) {
    //	auto num = *it++;

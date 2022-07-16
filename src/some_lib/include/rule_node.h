@@ -14,6 +14,8 @@ namespace jukebox {
 		virtual std::string Handale(const Song& song) override;
 
 	protected:
+		std::string NodeTypeToStr(const std::wstring& node_type);
+
 		const std::string node_type_;
 
 		const std::shared_ptr<Node> left_;

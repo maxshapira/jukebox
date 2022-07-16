@@ -4,5 +4,4 @@ target_link_libraries(
 	app
 	PUBLIC
 	some_lib
-	nlohmann_json::nlohmann_json
 )

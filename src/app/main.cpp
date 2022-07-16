@@ -1,10 +1,11 @@
 #include "file_parser.h"
-#include <nlohmann/json.hpp>
+#include "song.h"
 
 #include <fstream>
 #include <iostream>
 
 using namespace std;
+using namespace jukebox;
 
 
 using namespace nlohmann;
@@ -12,15 +13,16 @@ using namespace nlohmann;
 
 int main() {
 
-	std::ifstream people_file("data/songs.json", std::ifstream::binary);
-	json::value_type people;
-	people_file >> people;
+	std::ifstream songs_file("data/songs.json", std::ifstream::binary);
+	json::value_type songs;
+	songs_file >> songs;
+	auto song = songs.front();
 
 	//cout << people; //This will print the entire json object.
 	//cout << people.front(); //This will print the entire json object.
-	cout << people.front()["Artist"]; //This will print the entire json object.
+	cout << song["Artist"]; //This will print the entire json object.
 
-
+	Song songg{ song };
 
 
 

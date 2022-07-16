@@ -3,7 +3,7 @@
 
 
 namespace jukebox {
-	IntNode::ListNode(const std::string& node_type,
+	IntNode::IntNode(const std::wstring& node_type,
 					  int param,
 					  std::shared_ptr<Node> left,
 					  std::shared_ptr<Node> right):

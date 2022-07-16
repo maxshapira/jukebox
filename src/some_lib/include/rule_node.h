@@ -5,9 +5,9 @@
 
 
 namespace jukebox {
-	class RuleNode : Node {
+	class RuleNode : public Node {
 	public:
-		RuleNode(const std::string& node_type,
+		RuleNode(const std::wstring& node_type,
 				 std::shared_ptr<Node> left,
 				 std::shared_ptr<Node> right);
 

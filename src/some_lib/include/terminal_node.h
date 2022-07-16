@@ -4,9 +4,9 @@
 
 
 namespace jukebox {
-	class TerminalNode : Node {
+	class TerminalNode : public Node {
 	public:
-		TerminalNode(const std::string& song_status);
+		TerminalNode(const std::wstring& song_status);
 
 		virtual std::string Handale(const Song& song) override;
 

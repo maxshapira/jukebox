@@ -3,8 +3,8 @@
 
 
 namespace jukebox {
-ListNode::ListNode(const std::string& node_type,
-				   const set<wstring>& list_options,
+ListNode::ListNode(const std::wstring& node_type,
+				   const std::set<std::wstring>& list_options,
 				   std::shared_ptr<Node> left,
 				   std::shared_ptr<Node> right):
 	RuleNode{node_type, left, right},

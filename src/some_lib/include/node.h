@@ -1,10 +1,11 @@
 #pragma once
 #include <string>
+#include <nlohmann/json.hpp>
 
 
 namespace jukebox {
-	//forward declaration
-	class Song;
+	//typedef
+	using Song = nlohmann::json::value_type;
 
 
 

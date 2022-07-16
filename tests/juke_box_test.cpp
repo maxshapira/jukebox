@@ -1,4 +1,3 @@
-#include "some_class.h"
 #include <gtest/gtest.h>
 #include <iostream>
 #include <fstream>
@@ -6,16 +5,16 @@
 
 using namespace std;
 
-TEST(SomeLibTest, basic_test)
-{
-	app::SomeClass cls;
-
-	auto expected = 1;
-
-	auto actual = cls.GetNum();
-
-	EXPECT_EQ(actual, expected);
-}
+//TEST(SomeLibTest, basic_test)
+//{
+//	app::SomeClass cls;
+//
+//	auto expected = 1;
+//
+//	auto actual = cls.GetNum();
+//
+//	EXPECT_EQ(actual, expected);
+//}
 
 
 TEST(SomeLibTest1, basic_test)

@@ -1,7 +1,6 @@
 #include "nodes_container.h"
 #include <codecvt>
 #include <fstream>
-#include "file_parser.h"
 #include <set>
 #include "list_node.h"
 #include "terminal_node.h"
@@ -67,6 +66,8 @@ namespace jukebox {
 
 			nodes_map[num.front()] = node;
 		}
+
+		return nodes_map;
 	}
 
 

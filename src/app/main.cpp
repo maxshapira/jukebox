@@ -1,7 +1,6 @@
 #include <fstream>
 #include <iostream>
 #include <set>
-#include "song.h"
 #include "nodes_container.h"
 
 
@@ -20,6 +19,7 @@ int main() {
 	Song song{ songs.front() };
 
 	NodesContainer container("data/mae-j");
+	int ao = 0;
 	//auto wstrs =
    //for (auto it = wstrs.begin(); it != wstrs.end();) {
    //	auto num = *it++;

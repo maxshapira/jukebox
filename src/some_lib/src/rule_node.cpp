@@ -3,10 +3,12 @@
 
 namespace jukebox {
 
-	RuleNode::RuleNode(const std::string& node_type, std::shared_ptr<Node> left, std::shared_ptr<Node> right):
-		node_type_{node_type},
-		left_{left},
-		right_{right}
+	RuleNode::RuleNode(const std::wstring& node_type,
+					   std::shared_ptr<Node> left,
+					   std::shared_ptr<Node> right) :
+		node_type_{ node_type_.begin(), node_type_.end()},
+		left_{ left },
+		right_{ right }
 	{
 	}
 
@@ -14,7 +16,7 @@ namespace jukebox {
 
 	std::string RuleNode::Handale(const Song& song)
 	{
-		this->Handale(song);
+		return this->Handale(song);
 	}
 
 }

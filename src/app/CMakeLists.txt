@@ -1,4 +1,4 @@
-add_executable(app main.cpp  "../some_lib/src/file_parser.cpp")
+add_executable(app main.cpp)
 
 target_link_libraries(
 	app

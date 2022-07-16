@@ -4,17 +4,17 @@
 
 
 namespace jukebox {
-	class ListNode : public RuleNode {
+	class IntNode : public RuleNode {
 	public:
 		ListNode(const std::string& node_type,
-				 const set<wstring>& list_options,
+				 int param,
 				 std::shared_ptr<Node> left,
 				 std::shared_ptr<Node> right);
 
 		virtual std::string Handale(const Song& song) override;
 
 	private:
-		const set<wstring> list_options_;
+		const int param_;
 	};
 
 }

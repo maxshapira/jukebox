@@ -1,15 +1,15 @@
-#include "file_parser.h"
-#include "song.h"
-
 #include <fstream>
 #include <iostream>
 #include <set>
+#include "song.h"
+#include "nodes_container.h"
+
+
 
 using namespace std;
 using namespace jukebox;
-
-
 using namespace nlohmann;
+
 
 
 int main() {
@@ -19,31 +19,31 @@ int main() {
 	songs_file >> songs;
 	Song song{ songs.front() };
 
-	auto wstrs = jukebox::ReadFile("data/mae-j");
+	NodesContainer container("data/mae-j");
+	//auto wstrs =
+   //for (auto it = wstrs.begin(); it != wstrs.end();) {
+   //	auto num = *it++;
+   //	auto n_type = *it++;
+   //	bool sucess = false;
+   //	if (n_type == L"Artist") {
+   //		auto begin = it + 1;
+   //		auto end = it + 1 + (*it).front();
 
-	for (auto it = wstrs.begin(); it != wstrs.end();) {
-		auto num = *it++;
-		auto n_type = *it++;
-		bool sucess = false;
-		if (n_type == L"Artist") {
-			auto begin = it + 1;
-			auto end = it + 1 + (*it).front();
-
-			set<wstring> artists(begin, end);
-			wstring art(song.artist.begin(), song.artist.end());
-			auto artist = artists.find(art);
-			if (artist == artists.end()) {
-				sucess = false;			}
-			else {
-				sucess = true;
-			}
-		}
-		if (!sucess) {
-			auto b = *(it + 1 + (*it).front() + 1);
-			wcout << *(it + 1 + (*it).front() + 1) << endl;
-			int a = 0;
-		}
-	}
+   //		set<wstring> artists(begin, end);
+   //		wstring art(song.artist.begin(), song.artist.end());
+   //		auto artist = artists.find(art);
+   //		if (artist == artists.end()) {
+   //			sucess = false;			}
+   //		else {
+   //			sucess = true;
+   //		}
+   //	}
+   //	if (!sucess) {
+   //		auto b = *(it + 1 + (*it).front() + 1);
+   //		wcout << *(it + 1 + (*it).front() + 1) << endl;
+   //		int a = 0;
+   //	}
+   //}
 }
 
 

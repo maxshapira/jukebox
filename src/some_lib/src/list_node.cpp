@@ -22,12 +22,14 @@ std::string ListNode::Handale(const Song& song)
 	auto found = list_options_.find(param);
 
 	//item not found
+	//if `false` we move to the right child
 	if (found == list_options_.end()) {
-		return left_->Handale(song);
+		return right_->Handale(song);
 	}
 	//item found
+	//test node evaluates as `true` we move to it's left child
 	else {
-		return right_->Handale(song);
+		return left_->Handale(song);
 	}
 }
 

@@ -20,12 +20,13 @@ namespace jukebox {
 	{
 		auto param = song[node_type_];
 
+		//test node evaluates as `true` we move to it's left child
 		if (param <= param_) {
-			return right_->Handale(song);
-		}
-		else {
 			return left_->Handale(song);
-
+		}
+		//if `false` we move to the right child
+		else {
+			return right_->Handale(song);
 		}
 	}
 

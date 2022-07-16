@@ -1,35 +1,34 @@
 #include <gtest/gtest.h>
 #include <iostream>
 #include <fstream>
+#include "nodes_container.h"
+
 
 
 using namespace std;
-
-//TEST(SomeLibTest, basic_test)
-//{
-//	app::SomeClass cls;
-//
-//	auto expected = 1;
-//
-//	auto actual = cls.GetNum();
-//
-//	EXPECT_EQ(actual, expected);
-//}
+using namespace jukebox;
+using namespace nlohmann;;
 
 
-TEST(SomeLibTest1, basic_test)
+class JukeBoxTest : public ::testing::Test
 {
-	const char* filename = "example.txt";
-	fstream infile(filename, ios::in);
+protected:
+    virtual void SetUp()
+    {
+		std::ifstream songs_file("data/songs.json", std::ifstream::binary);
 
-	if (infile.is_open()) {
+		songs_file >> songs;
+    }
 
-		unsigned int a;
-		infile >> hex >> a;
-		cout << hex << a;
-	}
-	else {
-		cout << "couldnt open file!" << endl;
-	}
+	json::value_type songs;
+};
 
+
+
+TEST_F(JukeBoxTest, FirstSong) {
+	NodesContainer container("data/mae-j");
+
+	auto song_status = container.Play(songs.front());
+
+	EXPECT_EQ(song_status, "Play");
 }

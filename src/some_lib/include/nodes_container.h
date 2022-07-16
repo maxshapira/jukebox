@@ -13,6 +13,8 @@ namespace jukebox {
 
 		const std::unordered_map<int, std::shared_ptr<Node>> nodes_container_;
 
+		std::string Play(const Song& song);
+
 	private:
 		std::unordered_map<int, std::shared_ptr<Node>> Container(const std::string& filename);
 

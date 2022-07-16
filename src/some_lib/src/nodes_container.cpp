@@ -20,6 +20,13 @@ namespace jukebox {
 
 
 
+	std::string NodesContainer::Play(const Song& song)
+	{
+		return nodes_container_.begin()->second->Handale(song);
+	}
+
+
+
 	std::unordered_map<int, std::shared_ptr<Node>> NodesContainer::Container(const std::string& filename)
 	{
 		std::unordered_map<int, shared_ptr<Node>> nodes_map;

@@ -3,17 +3,13 @@
 
 
 namespace jukebox {
+	//forward declaration
+	class Song;
+
+
+
+	//interface for nodes
 	struct Node{
-		Node(int num, const std::string& type);
-
-		bool IsTerminal();
-
-		const int num;
-
-		const std::string type;
-
-		Node* left;
-
-		Node* right;
+		virtual std::string Handale(const Song& song);
 	};
 }

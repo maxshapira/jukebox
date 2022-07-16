@@ -16,10 +16,9 @@ int main() {
 	std::ifstream songs_file("data/songs.json", std::ifstream::binary);
 	json::value_type songs;
 	songs_file >> songs;
-	Song song{ songs.front() };
-
-	NodesContainer container("data/mae-j");
-	int ao = 0;
+	std::string file{ "data/mae-j" };
+	NodesContainer container(file);
+	//int ao = 0;
 	//auto wstrs =
    //for (auto it = wstrs.begin(); it != wstrs.end();) {
    //	auto num = *it++;

@@ -11,7 +11,7 @@ add_library(some_lib
  "src/nodes_container.cpp" 
  "src/rule_node.cpp" 
  "src/terminal_node.cpp" 
- )
+   )
 
 target_include_directories(some_lib PUBLIC include)
 

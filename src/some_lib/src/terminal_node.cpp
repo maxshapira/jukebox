@@ -3,8 +3,8 @@
 
 
 namespace jukebox {
-	TerminalNode::TerminalNode(const std::wstring& song_status):
-		song_status_{song_status.begin(), song_status.end()}
+	TerminalNode::TerminalNode(const std::wstring& song_status) :
+		song_status_{ song_status.begin(), song_status.end() }
 	{
 
 	}

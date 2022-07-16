@@ -3,6 +3,7 @@
 #include <nlohmann/json.hpp>
 
 
+
 namespace jukebox {
 	//typedef
 	using Song = nlohmann::json::value_type;
@@ -11,6 +12,6 @@ namespace jukebox {
 
 	//interface for nodes
 	struct Node{
-		virtual std::string Handale(const Song& song);
+		virtual std::string Handale(const Song& song) = 0;
 	};
 }

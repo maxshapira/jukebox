@@ -3,6 +3,7 @@
 
 #include <fstream>
 #include <iostream>
+#include <set>
 
 using namespace std;
 using namespace jukebox;
@@ -27,8 +28,16 @@ int main() {
 			auto begin = it + 1;
 			auto end = it + 1 + (* it).front();
 
-			vector<wstring> artists(begin, end);
-			int a = 0;
+			set<wstring> artists(begin, end);
+			wstring art (song.artist.begin(), song.artist.end());
+			auto artist = artists.find(art);
+			if (artist == artists.end()) {
+				cout << "not find" << endl;
+			}
+			else {
+				cout << "find" << endl;
+			}
+			int b = 0;
 		}
 	}
 }

@@ -1,2 +1,2 @@
-add_subdirectory(some_lib)
+add_subdirectory(juke_box)
 add_subdirectory(app)

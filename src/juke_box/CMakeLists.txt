@@ -1,4 +1,4 @@
-add_library(some_lib 
+add_library(juke_box 
 "include/int_node.h"
 "include/list_node.h" 
 "include/node.h"
@@ -11,9 +11,9 @@ add_library(some_lib
  "src/juke_box.cpp" 
  "src/rule_node.cpp" 
  "src/terminal_node.cpp" 
-    )
+     "include/string_converter.h")
 
-target_include_directories(some_lib PUBLIC include)
+target_include_directories(juke_box PUBLIC include)
 
 include(FetchContent)
 
@@ -25,7 +25,7 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(json)
 
 target_link_libraries(
-	some_lib
+	juke_box
 	PUBLIC
 	nlohmann_json::nlohmann_json
 )

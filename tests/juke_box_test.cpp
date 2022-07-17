@@ -10,6 +10,8 @@ using namespace jukebox;
 using namespace nlohmann;;
 
 
+
+//load all songs
 class JukeBoxTest : public ::testing::Test
 {
 protected:
@@ -26,6 +28,7 @@ protected:
 
 
 
+//Test all songs relative to Mae-j rules
 TEST_F(JukeBoxTest, MaeJRules) {
 	JukeBox juke_box("data/mae-j");
 
@@ -33,7 +36,9 @@ TEST_F(JukeBoxTest, MaeJRules) {
 
 	for (int i = 0; i < songs.size(); i++) {
 		auto song_status = juke_box.Play(songs[i]);
+
 		auto found = play_indexes.find(i);
+
 		if (found != play_indexes.end()) {
 			EXPECT_EQ(song_status, "Play");
 		}
@@ -45,6 +50,7 @@ TEST_F(JukeBoxTest, MaeJRules) {
 
 
 
+//Test all songs relative to Buzz-A rules
 TEST_F(JukeBoxTest, BuzzARules) {
 	JukeBox juke_box("data/buzz-a");
 
@@ -52,7 +58,9 @@ TEST_F(JukeBoxTest, BuzzARules) {
 
 	for (int i = 0; i < songs.size(); i++) {
 		auto song_status = juke_box.Play(songs[i]);
+
 		auto found = play_indexes.find(i);
+
 		if (found != play_indexes.end()) {
 			EXPECT_EQ(song_status, "Play");
 		}
@@ -64,6 +72,7 @@ TEST_F(JukeBoxTest, BuzzARules) {
 
 
 
+//Test all songs relative to Neil-A rules
 TEST_F(JukeBoxTest, NeilARules) {
 	JukeBox juke_box("data/neil-a");
 

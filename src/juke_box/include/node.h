@@ -10,8 +10,8 @@ namespace jukebox {
 
 
 
-	//interface for nodes
-	struct Node{
+	//The Node declares a method for executing a song request
+	struct Node {
 		virtual std::string Handale(const Song& song) = 0;
 	};
 }

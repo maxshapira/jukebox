@@ -14,6 +14,6 @@ add_executable(app_test "juke_box_test.cpp")
 target_link_libraries(app_test
  PRIVATE
   GTest::GTest
-  some_lib)
+  juke_box)
 
 add_test(app_gtests app_test)

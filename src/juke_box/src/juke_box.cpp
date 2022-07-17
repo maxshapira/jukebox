@@ -14,29 +14,34 @@ using namespace std;
 namespace jukebox {
 	JukeBox::JukeBox(const std::string& filename)
 	{
-		Container(filename);
+		BuildContainer(filename);
 	}
 
 
 
 	std::string JukeBox::Play(const Song& song)
 	{
+		//handle all rules one by one according to decisions
 		return nodes_container_.at(1)->Handale(song);
 	}
 
 
 
-	void JukeBox::Container(const std::string& filename)
+	void JukeBox::BuildContainer(const std::string& filename)
 	{
+		//parse the file with rules
 		auto wstrs = ReadFile(filename);
 
+		//run over the rules and insert to container
 		for (auto it = wstrs.begin(); it != wstrs.end();) {
 			auto num = *it++;
 
 			auto n_type = *it++;
-
+			
+			//create node
 			auto node = CreateNode(num.front(), n_type, it);
 
+			//insert node to appropriate index in table
 			nodes_container_[num.front()] = node;
 		}
 	}
@@ -49,32 +54,29 @@ namespace jukebox {
 	{
 		shared_ptr<Node> node;
 
+		//create terminal node
 		if (n_type == L"Skip" || n_type == L"Play") {
 			node = std::make_shared<TerminalNode>(n_type);
 		}
-		else {
-			//auto& left = nodes_container_[num * 2] = nullptr;
+		//create list node
+		else if (n_type == L"Artist" || n_type == L"Genre") {
+			auto begin = it + 1;
 
-			//auto& right = nodes_container_[num * 2 + 1] = nullptr;
+			it = it + 1 + (*it).front();
 
-			if (n_type == L"Artist" || n_type == L"Genre") {
-				auto begin = it + 1;
+			auto end = it;
 
-				it = it + 1 + (*it).front();
+			set<wstring> options_list(begin, end);
 
-				auto end = it;
+			node = std::make_shared<ListNode>(n_type, options_list, nodes_container_, num);
+		}
+		//create int node
+		else if (n_type == L"Length" || n_type == L"BPM") {
+			it++;
 
-				set<wstring> options_list(begin, end);
+			int param = (*it).front();
 
-				node = std::make_shared<ListNode>(n_type, options_list, nodes_container_, num);
-			}
-			else if (n_type == L"Length" || n_type == L"BPM") {
-				it++;
-
-				int param = (*it).front();
-
-				node = std::make_shared<IntNode>(n_type, param, nodes_container_, num);
-			}
+			node = std::make_shared<IntNode>(n_type, param, nodes_container_, num);
 		}
 		return node;
 	}
@@ -91,7 +93,9 @@ namespace jukebox {
 
 		std::vector<std::wstring> parts;
 
+		//split line to words 
 		while (std::getline(wif, part, L'\0')) {
+			//delete empty strings
 			if (part != L"")
 				parts.push_back(part);
 		}

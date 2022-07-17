@@ -5,20 +5,30 @@
 
 
 
-using namespace std;
 using namespace jukebox;
 using namespace nlohmann;
 
 
 
 int main() {
-	std::ifstream songs_file("data/songs.json", std::ifstream::binary);
-	json::value_type songs;
-	songs_file >> songs;
 	std::string file{ "data/mae-j" };
+
+	//parse a rule configuration
 	JukeBox juke_box(file);
-	auto a = juke_box.Play(songs.front());
-	int ao = 0;
+
+	//evaluate a list of songs
+	std::ifstream songs_file("data/songs.json", std::ifstream::binary);
+
+	json::value_type songs;
+
+	songs_file >> songs;
+
+	//determine which of them will be allowed to play, according to the rules
+	for (const auto& song : songs) {
+		auto song_status = juke_box.Play(song);
+
+		std::cout << song_status << " " << song["Title"] << std::endl;
+	}
 }
 
 

@@ -8,8 +8,8 @@ namespace jukebox {
 	public:
 		IntNode(const std::wstring& node_type,
 				int param,
-				std::shared_ptr<Node> left,
-				std::shared_ptr<Node> right);
+				const std::unordered_map<int, std::shared_ptr<Node>>& nodes_container,
+				int num);
 
 		virtual std::string Handale(const Song& song) override;
 

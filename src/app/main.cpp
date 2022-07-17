@@ -1,7 +1,7 @@
 #include <fstream>
 #include <iostream>
 #include <set>
-#include "nodes_container.h"
+#include "juke_box.h"
 
 
 
@@ -16,9 +16,8 @@ int main() {
 	json::value_type songs;
 	songs_file >> songs;
 	std::string file{ "data/mae-j" };
-	NodesContainer container(file);
-	auto a = container.Play(songs.front());
-	cout << a << endl;
+	JukeBox juke_box(file);
+	auto a = juke_box.Play(songs.front());
 	int ao = 0;
 }
 

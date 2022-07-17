@@ -8,8 +8,8 @@ namespace jukebox {
 	class RuleNode : public Node {
 	public:
 		RuleNode(const std::wstring& node_type,
-				 std::shared_ptr<Node> left,
-				 std::shared_ptr<Node> right);
+				 const std::unordered_map<int, std::shared_ptr<Node>>& nodes_container,
+				 int num);
 
 		virtual std::string Handale(const Song& song) override;
 
@@ -18,8 +18,8 @@ namespace jukebox {
 
 		const std::string node_type_;
 
-		const std::shared_ptr<Node> left_;
+		const std::unordered_map<int, std::shared_ptr<Node>>& nodes_container_;
 
-		const std::shared_ptr<Node> right_;
+		int num_;
 	};
 }

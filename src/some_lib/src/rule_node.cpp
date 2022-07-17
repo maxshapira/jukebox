@@ -1,15 +1,16 @@
 #include "rule_node.h"
 #include <codecvt>
+#include <iostream>
 
 
 namespace jukebox {
 
 	RuleNode::RuleNode(const std::wstring& node_type,
-					   std::shared_ptr<Node> left,
-					   std::shared_ptr<Node> right) :
+					   const std::unordered_map<int, std::shared_ptr<Node>>& nodes_container,
+					   int num) :
 		node_type_{ NodeTypeToStr(node_type) },
-		left_{ left },
-		right_{ right }
+		nodes_container_{nodes_container},
+		num_{num}
 	{
 	}
 

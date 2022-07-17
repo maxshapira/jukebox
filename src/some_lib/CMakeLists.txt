@@ -2,16 +2,16 @@ add_library(some_lib
 "include/int_node.h"
 "include/list_node.h" 
 "include/node.h"
-"include/nodes_container.h"
+"include/juke_box.h"
 "include/rule_node.h"
 "include/terminal_node.h"
 
  "src/int_node.cpp"
  "src/list_node.cpp"
- "src/nodes_container.cpp" 
+ "src/juke_box.cpp" 
  "src/rule_node.cpp" 
  "src/terminal_node.cpp" 
-   )
+    )
 
 target_include_directories(some_lib PUBLIC include)
 

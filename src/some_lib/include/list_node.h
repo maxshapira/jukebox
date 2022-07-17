@@ -9,8 +9,8 @@ namespace jukebox {
 	public:
 		ListNode(const std::wstring& node_type,
 				 const std::set<std::wstring>& list_options,
-				 std::shared_ptr<Node> left,
-				 std::shared_ptr<Node> right);
+				 const std::unordered_map<int, std::shared_ptr<Node>>& nodes_container,
+				 int num);
 
 		virtual std::string Handale(const Song& song) override;
 

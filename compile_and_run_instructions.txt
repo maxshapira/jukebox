@@ -1,0 +1,4 @@
+I did not download libraries to my PC, everything was done by FETCH with Cmake.
+I was working on Windows but it's with Cmake so hopefully it works on Linux as well.
+You can run from the main there is a run with one rules file.
+Or you can run from the tests there are some rules files being tested.
